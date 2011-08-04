@@ -19,9 +19,12 @@
  */
 package de.ecclesia.kipeto;
 
+import java.io.File;
+
 import org.kohsuke.args4j.Option;
 
 import de.ecclesia.kipeto.common.util.AbstractOption;
+import de.ecclesia.kipeto.common.util.Assert;
 
 public class Options extends AbstractOption {
 
@@ -54,6 +57,9 @@ public class Options extends AbstractOption {
 	
 	@Option(name = "-nsu", aliases = { "--no-self-update" }, required = false, usage = "no self Update")
 	private Boolean noSelfUpdate = Boolean.FALSE;
+	
+	@Option(name = "-k", aliases = { "--key" }, required = false, usage = "Key-file for SFTP")
+	private File keyFile;
 
 	public Options() {
 	}
@@ -100,5 +106,9 @@ public class Options extends AbstractOption {
 	
 	public boolean isSuppressOfflineErrorMsg() {
 		return suppressOfflineErrorMsg;
+	}
+	
+	public File getKeyFile() {
+		return keyFile;
 	}
 }

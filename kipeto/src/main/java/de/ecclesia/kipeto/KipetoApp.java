@@ -93,6 +93,7 @@ public class KipetoApp {
 				repositoryUrl = options.getRepository();
 			} else {
 				RepositoryResolver resolver = new RepositoryResolver(options.getRepository());
+				resolver.setKeyFile(options.getKeyFile());
 				repositoryUrl = resolver.resolveReposUrl();
 			}
 

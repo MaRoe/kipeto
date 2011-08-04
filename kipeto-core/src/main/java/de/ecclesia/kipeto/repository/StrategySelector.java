@@ -40,7 +40,7 @@ public class StrategySelector {
 		ReadingRepositoryStrategy repository;
 		if (url.toLowerCase().startsWith("http:")) {
 			repository = new HttpRepositoryStrategy(url);
-		} else if (url.toLowerCase().startsWith("ssh:")) {
+		} else if (url.toLowerCase().startsWith("ssh:") || url.toLowerCase().startsWith("sftp:")) {
 			repository = new SFTPRepositoryStrategy(url, authenticationProvider, tempDir);
 		} else {
 			repository = new FileRepositoryStrategy(new File(url), tempDir);
